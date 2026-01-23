@@ -1,10 +1,21 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Navbar from "./Components/Navbar"
+import Login from "./Pages/Login"
+import Register from "./pages/Register"
+import Chat from "./pages/Chat"
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <h1 className="text-4xl font-bold text-white">
-        🍒 Cherrybot (Tailwind Ready)
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="*" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
